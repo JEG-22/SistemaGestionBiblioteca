@@ -1,4 +1,4 @@
-# Proyecto Final: Puntuación para asignaturas IDS340 e IDS340L
+# Proyecto Final: Para asignaturas IDS340 e IDS340L
 
 ## Descripción: Desarrollar un sistema de gestión de reservas para una biblioteca en C#
 
