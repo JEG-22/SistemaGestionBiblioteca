@@ -14,11 +14,17 @@ namespace SistemaGestionBiblioteca
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Se invoca cuando el Form termina de cargar, para rellenar el combo box de generos para el filtro
+        /// </summary>
         private void ReportsForm_Load(object sender, EventArgs e)
         {
             PopulateGenres();
         }
 
+        /// <summary>
+        /// Carga todos los libros disponibles en el Data Grid View, si el CheckBox de filtrar por Genero esta True entonces tambien filtra por Genero
+        /// </summary>
         private void btnViewAvailableBooks_Click(object sender, EventArgs e)
         {
             using (var connection = new SqliteConnection(connectionString))
@@ -52,38 +58,16 @@ namespace SistemaGestionBiblioteca
             }
         }
 
+        
         private void chkViewBooksByGenre_CheckedChanged(object sender, EventArgs e)
         {
+            // Solo permite utilizar el combo box si se esta filtrando por Genero
             comboBoxGenres.Enabled = chkViewBooksByGenre.Checked;
         }
 
-        private void btnViewBooksByGenre_Click(object sender, EventArgs e)
-        {
-            if (comboBoxGenres.SelectedItem == null)
-            {
-                MessageBox.Show("Please select a genre.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            using (var connection = new SqliteConnection(connectionString))
-            {
-                connection.Open();
-
-                var command = connection.CreateCommand();
-                command.CommandText =@"SELECT * FROM Books WHERE Genre = $genre";
-                command.Parameters.AddWithValue("$genre", comboBoxGenres.SelectedItem);
-
-                var dataTable = new DataTable();
-            
-                using (var reader = command.ExecuteReader())
-                {
-                    dataTable.Load(reader);
-                }
-                
-                dgvReports.DataSource = dataTable;
-            }
-        }
-
+        /// <summary>
+        /// Busca todos los generos en los libros de la base de datos y rellena las opcines del combo box
+        /// </summary>
         private void PopulateGenres()
         {
             using (var connection = new SqliteConnection(connectionString))
@@ -105,6 +89,9 @@ namespace SistemaGestionBiblioteca
                 comboBoxGenres.SelectedIndex = 0; // Set default selection
         }
 
+        /// <summary>
+        /// Genera una tabla para el Data Grid View, que demuestra que libros han sido mas reservasdos
+        /// </summary>
         private void btnMostReservedBooks_Click(object sender, EventArgs e)
         {
             using (var connection = new SqliteConnection(connectionString))
@@ -135,6 +122,9 @@ namespace SistemaGestionBiblioteca
             }
         }
 
+        /// <summary>
+        /// Genera una Tabla para el Data Grid View, la cual contiene a los usuarios que mas libros han reservado
+        /// </summary>
         private void btnMostActiveUsers_Click(object sender, EventArgs e)
         {
             using (var connection = new SqliteConnection(connectionString))

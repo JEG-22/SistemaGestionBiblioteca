@@ -34,7 +34,7 @@ namespace SistemaGestionBiblioteca
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(210, 22);
             this.lblTitle.TabIndex = 0;
@@ -115,6 +115,7 @@ namespace SistemaGestionBiblioteca
             // 
             // ReportsForm
             // 
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 300);
             this.Controls.Add(this.dgvReports);
             this.Controls.Add(this.btnMostActiveUsers);

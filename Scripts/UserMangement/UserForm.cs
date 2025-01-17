@@ -12,11 +12,16 @@ public partial class UserForm : Form
         InitializeComponent();
     }
 
+
     private void UserForm_Load(object sender, EventArgs e)
     {
+        //Carga la Data en el Data Grid View cuando termine de Cargar el Form
         LoadData();
     }
 
+    /// <summary>
+    /// Guarda la informacion del nuevo usuario a la base de datos
+    /// </summary>
     private void btnSave_Click(object sender, EventArgs e)
     {
         string firstName = txtFirstName.Text;
@@ -68,11 +73,17 @@ public partial class UserForm : Form
             ClearInputFields();
         }
     }
+
+    
     private void btnCancel_Click(object sender, EventArgs e)
     {
+        //Limpia los campos 
         ClearInputFields();
     }
 
+    /// <summary>
+    /// Limpia los campos 
+    /// </summary>
     private void ClearInputFields()
     {
         txtUserID.Clear();
@@ -82,6 +93,10 @@ public partial class UserForm : Form
         txtPhone.Clear();
         LoadData();
     }
+
+    /// <summary>
+    /// Carga la Data de los usuarios en el Data Grid View
+    /// </summary>
     public void LoadData()
     {
          using (var connection = new SqliteConnection(connectionString))
@@ -102,6 +117,9 @@ public partial class UserForm : Form
         }
     }
 
+    /// <summary>
+    /// Permite que el usuario edite la informacion que ya esta en la base de Datos
+    /// </summary>
     public void UpdateCell(object sender, DataGridViewCellEventArgs e)
     {
         if(dgvUsers.DataSource != null)
@@ -125,6 +143,9 @@ public partial class UserForm : Form
         }
     }
 
+    /// <summary>
+    /// Elimina a un usario con us ID
+    /// </summary>
     public void btnDeleteByID_Click(object sender, EventArgs e)
     {
         int userID = int.TryParse(txtUserID.Text, out int result) ? result : -1;

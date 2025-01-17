@@ -5,6 +5,9 @@ namespace SistemaGestionBiblioteca;
 
 public class Book
 {
+    /// <summary>
+    /// Crea un Book utilizando todos los parametros necesarios para la base de Datos
+    /// </summary>
     public Book(string isbn, string title, string author, string publisher, string genre, int yearPublished, int copies)
     {
         // make new book
@@ -17,6 +20,10 @@ public class Book
         this.Copies = copies;
     }
 
+    /// <summary>
+    /// Busca un libro que ya este en la base de datos con su ISBN
+    /// </summary>
+    /// <param name="ISBN">El Codigo Unico del Libro (International Standard Book Number)</param>
     public Book(string ISBN)
     {
         //get book from ISBN

@@ -12,11 +12,16 @@ public partial class MainForm : Form
         InitializeComponent();
     }
 
+    /// <summary>Invoca los siguintes metodos despues de que termina de cargar el Form. </summary>
     private void MainForm_Load(object sender, EventArgs e)
     {
         LoadData();
     }
 
+    /// <summary>
+    /// Agrega un Libro a la base de Datos.
+    /// </summary>
+    /// <param name="book"></param>
     public void AddBook(Book book)
     {
         using (var connection = new SqliteConnection(connectionString))
@@ -57,6 +62,10 @@ public partial class MainForm : Form
         }
     }
 
+    /// <summary>
+    /// Elimina un Libro de la base de Datos.
+    /// </summary>
+    /// <param name="book"></param>
     public void RemoveBook(Book book)
     {
         if (book.ISBN == null)
@@ -91,6 +100,9 @@ public partial class MainForm : Form
         }
     }
 
+    /// <summary>
+    /// Cuando Se presiona el botton, se crea una nueva instancia de la clase Book con la informacion ingresada por el usuario, Luego se utiliza el metodo <seealso cref="AddBook"/>.
+    /// </summary>
     private void btnAgregar_Click(object sender, EventArgs e)
     {
         // Retrieve input data from TextBox controls
@@ -115,6 +127,9 @@ public partial class MainForm : Form
         ClearInputFields();
     }
 
+    /// <summary>
+    /// Elimina el Libro de la base de Datos con tan solo el ISBN code, esto es posible gracias al constructor de la clase Book.
+    /// </summary>
     private void btnEliminar_Click(object sender, EventArgs e)
     {
         string isbn = txtISBN.Text;
@@ -132,6 +147,9 @@ public partial class MainForm : Form
         ClearInputFields();
     }
 
+    /// <summary>
+    /// Limpia los controles para poder ingresar otro libro
+    /// </summary>
     private void ClearInputFields()
     {
         txtISBN.Clear();
@@ -143,6 +161,10 @@ public partial class MainForm : Form
         txtCopies.Clear();
         LoadData();
     }
+
+    /// <summary>
+    /// Carga los Libro en el Data Grid View
+    /// </summary>
     public void LoadData()
     {
          using (var connection = new SqliteConnection(connectionString))
@@ -163,6 +185,9 @@ public partial class MainForm : Form
         }
     }
 
+    /// <summary>
+    /// Se activa cuando una celda se modifica dentro del Data Grid View para permitir que el usuario edite la informacion en la base de datos
+    /// </summary>
     public void UpdateCell(object sender, DataGridViewCellEventArgs e)
     {
         if(dgvBooks.DataSource != null)

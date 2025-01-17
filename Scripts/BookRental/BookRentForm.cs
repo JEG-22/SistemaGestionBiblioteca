@@ -13,12 +13,15 @@ namespace SistemaGestionBiblioteca
             InitializeComponent();
         }
 
+        /// <summary>Invoca los siguintes metodos despues de que termina de cargar el Form. </summary>
         private void BookRentForm_Load(object sender, EventArgs e)
         {
             LoadRentalData();
             LoadUserIDs();
             LoadBooks();
         }
+        
+        ///<summary>Limpia los combo boxes y Refresca el Data grid view. </summary>
         private void ResetFormFields()
         {
             LoadRentalData();
@@ -26,6 +29,7 @@ namespace SistemaGestionBiblioteca
             cbBooks.SelectedItem = null;
         }
 
+        ///<summary>Pone el Table BookRental en el Data Grid View </summary>
         private void LoadRentalData()
         {
             using (var connection = new SqliteConnection(connectionString))
@@ -45,6 +49,8 @@ namespace SistemaGestionBiblioteca
             }
         }
 
+        
+        ///<summary>Carga los Usuarios en el Combo Box para que sea mas facil selecionarlos al momento de utilizar la app. </summary>
         private void LoadUserIDs()
         {
             using (var connection = new SqliteConnection(connectionString))
@@ -65,6 +71,7 @@ namespace SistemaGestionBiblioteca
             }
         }
 
+        ///<summary> Carga los Libros en el Combo Box para que sea mas facil selecionarlos al momento de utilizar la app. </summary>
         private void LoadBooks()
         {
             using (var connection = new SqliteConnection(connectionString))
@@ -85,6 +92,9 @@ namespace SistemaGestionBiblioteca
             }
         }
 
+        /// <summary>
+        /// Agrega El Alquiler de un libro con la info en los controles del UI.
+        /// </summary>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             var user = cbUsers.SelectedItem;
@@ -122,6 +132,9 @@ namespace SistemaGestionBiblioteca
             }
         }
 
+        /// <summary>
+        /// Elimina un Alquiler que este selecionado en el Grid View.
+        /// </summary>
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dgvRentals.SelectedRows.Count > 0)

@@ -17,6 +17,7 @@ namespace SistemaGestionBiblioteca
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvUsers;
+        private System.Windows.Forms.Label lblTitle;
 
         protected override void Dispose(bool disposing)
         {
@@ -43,12 +44,24 @@ namespace SistemaGestionBiblioteca
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
+            this.lblTitle = new System.Windows.Forms.Label();
+
+            //
+            // lblTitle
+            //
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblTitle.Location = new System.Drawing.Point(250, 10);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(220, 26);
+            this.lblTitle.TabIndex = 15;
+            this.lblTitle.Text = "Gestión de Usuarios";
 
             
             // 
             // txtFirstName
             // 
-            this.txtFirstName.Location = new System.Drawing.Point(150, 30);
+            this.txtFirstName.Location = new System.Drawing.Point(150, 30 + 40);
             this.txtFirstName.Name = "txtFirstName";
             this.txtFirstName.Size = new System.Drawing.Size(200, 23);
             this.txtFirstName.TabIndex = 1;
@@ -56,7 +69,7 @@ namespace SistemaGestionBiblioteca
             // 
             // txtLastName
             // 
-            this.txtLastName.Location = new System.Drawing.Point(150, 70);
+            this.txtLastName.Location = new System.Drawing.Point(150, 70 + 40);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(200, 23);
             this.txtLastName.TabIndex = 2;
@@ -64,7 +77,7 @@ namespace SistemaGestionBiblioteca
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(150, 110);
+            this.txtEmail.Location = new System.Drawing.Point(150, 110 + 40);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(200, 23);
             this.txtEmail.TabIndex = 3;
@@ -72,7 +85,7 @@ namespace SistemaGestionBiblioteca
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(150, 150);
+            this.txtPhone.Location = new System.Drawing.Point(150, 150 + 40);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(200, 23);
             this.txtPhone.TabIndex = 4;
@@ -83,7 +96,7 @@ namespace SistemaGestionBiblioteca
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
-            this.lblFirstName.Location = new System.Drawing.Point(30, 30);
+            this.lblFirstName.Location = new System.Drawing.Point(30, 30 + 40);
             this.lblFirstName.Name = "lblFirstName";
             this.lblFirstName.Size = new System.Drawing.Size(58, 15);
             this.lblFirstName.TabIndex = 6;
@@ -93,7 +106,7 @@ namespace SistemaGestionBiblioteca
             // lblLastName
             // 
             this.lblLastName.AutoSize = true;
-            this.lblLastName.Location = new System.Drawing.Point(30, 70);
+            this.lblLastName.Location = new System.Drawing.Point(30, 70 + 40);
             this.lblLastName.Name = "lblLastName";
             this.lblLastName.Size = new System.Drawing.Size(58, 15);
             this.lblLastName.TabIndex = 7;
@@ -103,7 +116,7 @@ namespace SistemaGestionBiblioteca
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(30, 110);
+            this.lblEmail.Location = new System.Drawing.Point(30, 110 + 40);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(42, 15);
             this.lblEmail.TabIndex = 8;
@@ -113,7 +126,7 @@ namespace SistemaGestionBiblioteca
             // lblPhone
             // 
             this.lblPhone.AutoSize = true;
-            this.lblPhone.Location = new System.Drawing.Point(30, 150);
+            this.lblPhone.Location = new System.Drawing.Point(30, 150 + 40);
             this.lblPhone.Name = "lblPhone";
             this.lblPhone.Size = new System.Drawing.Size(56, 15);
             this.lblPhone.TabIndex = 9;
@@ -123,7 +136,7 @@ namespace SistemaGestionBiblioteca
             // lblUserID
             // 
             this.lblUserID.AutoSize = true;
-            this.lblUserID.Location = new System.Drawing.Point(430, 70);
+            this.lblUserID.Location = new System.Drawing.Point(430, 70 + 40);
             this.lblUserID.Name = "lblUserID";
             this.lblUserID.Size = new System.Drawing.Size(58, 15);
             this.lblUserID.TabIndex = 14;
@@ -132,7 +145,7 @@ namespace SistemaGestionBiblioteca
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(270, 190);
+            this.btnSave.Location = new System.Drawing.Point(270, 190 + 40);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(100, 23);
             this.btnSave.TabIndex = 10;
@@ -143,7 +156,7 @@ namespace SistemaGestionBiblioteca
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(150, 190);
+            this.btnCancel.Location = new System.Drawing.Point(150, 190 + 40);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 23);
             this.btnCancel.TabIndex = 11;
@@ -154,7 +167,7 @@ namespace SistemaGestionBiblioteca
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(540, 30);
+            this.btnDelete.Location = new System.Drawing.Point(540, 30 + 40);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(120, 23);
             this.btnDelete.TabIndex = 13;
@@ -165,7 +178,7 @@ namespace SistemaGestionBiblioteca
             // 
             // txtUserID
             // 
-            this.txtUserID.Location = new System.Drawing.Point(500, 70);
+            this.txtUserID.Location = new System.Drawing.Point(500, 70 + 40);
             this.txtUserID.Name = "txtUserID";
             this.txtUserID.Size = new System.Drawing.Size(200, 23);
             this.txtUserID.TabIndex = 0;
@@ -173,7 +186,7 @@ namespace SistemaGestionBiblioteca
             //
             // dgvUsers
             //
-            this.dgvUsers.Location = new System.Drawing.Point(30, 230);
+            this.dgvUsers.Location = new System.Drawing.Point(30, 230 + 40);
             this.dgvUsers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.Size = new System.Drawing.Size(740, 150);
@@ -185,7 +198,9 @@ namespace SistemaGestionBiblioteca
             // 
             // UserForm
             // 
-            this.ClientSize = new System.Drawing.Size(800, 400);
+            this.BackColor = System.Drawing.Color.LightSteelBlue;;
+            this.ClientSize = new System.Drawing.Size(800, 440);
+            this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);

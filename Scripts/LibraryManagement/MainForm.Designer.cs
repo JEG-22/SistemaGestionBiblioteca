@@ -68,8 +68,9 @@
             // 
             // lblFormTitle
             // 
+            this.lblFormTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lblFormTitle.AutoSize = true;
-            this.lblFormTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
+            // this.lblFormTitle.Font = new System.Drawing.Font("Arial", 14F, System.Drawing.FontStyle.Bold);
             this.lblFormTitle.Location = new System.Drawing.Point(30, 20);  // Positioned at the top
             this.lblFormTitle.Name = "lblFormTitle";
             this.lblFormTitle.Size = new System.Drawing.Size(280, 22);
@@ -239,6 +240,7 @@
             // 
             // MainForm
             // 
+            this.BackColor = System.Drawing.Color.LightSteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 550); // Form size adjusted to fit
             this.Controls.Add(this.dgvBooks);
             this.Controls.Add(this.lblCopies);
