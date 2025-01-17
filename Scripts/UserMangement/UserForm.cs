@@ -36,7 +36,7 @@ public partial class UserForm : Form
             MessageBox.Show("Porfavor complete los campos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             badinput = true;
         }
-        if(string.IsNullOrEmpty(phone) || (!int.TryParse(phone, out int result)) || (phone.Length < 10))
+        if(string.IsNullOrEmpty(phone) || (!long.TryParse(phone, out long ignoreMe)) || (phone.Length < 10))
         {
             MessageBox.Show("Porfavor complete los campos correctamente. Solo 10 numeros en el Telefono", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             badinput = true;
