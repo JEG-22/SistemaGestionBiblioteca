@@ -90,44 +90,36 @@ public partial class MainForm : Form
         string genre = txtGenre.Text;
         int copies = int.TryParse(txtCopies.Text, out int copiesResult) ? copiesResult : 0;
         int yearPublished = int.TryParse(txtYearPublished.Text, out int yearResult) ? yearResult : 0;
-        // Validate that all fields are filled
+
         if ((string.IsNullOrEmpty(isbn) || isbn.Length != 10) || string.IsNullOrEmpty(title) || string.IsNullOrEmpty(author) || string.IsNullOrEmpty(publisher) || string.IsNullOrEmpty(genre) || yearPublished == 0)
         {
             MessageBox.Show("Porfavor complete los campos correctamente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        // Create a new Book object with the provided data
         var newBook = new Book(isbn, title, author, publisher, genre, yearPublished, copies);
 
-        // Call the AddBook method to add the book to the database
         AddBook(newBook);
 
-        // Optionally, clear input fields after adding
         ClearInputFields();
     }
 
     // Event handler for the Remove Book button
     private void btnEliminar_Click(object sender, EventArgs e)
     {
-        // Retrieve the Book ID from the TextBox control
         string isbn = txtISBN.Text;
 
-        // Validate the Book ID
         if (isbn.Length != 10)
         {
             MessageBox.Show("Porfavor ingrese un codigo ISBN-10 valido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
         }
 
-        // Create a new Book object with the provided ISBN code
         var bookToRemove = new Book(isbn);
 
-        // Call the RemoveBook method to delete the book from the database
         RemoveBook(bookToRemove);
 
-        // Optionally, clear input fields after removing
-        txtISBN.Clear();
+        ClearInputFields();
     }
 
     // Method to clear input fields

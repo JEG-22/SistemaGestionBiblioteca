@@ -227,7 +227,7 @@
             // 
             // dgvBooks
             // 
-            this.dgvBooks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBooks.Location = new System.Drawing.Point(30, 300); // Moved up closer
             this.dgvBooks.Name = "dgvBooks";
             this.dgvBooks.Size = new System.Drawing.Size(340, 200);

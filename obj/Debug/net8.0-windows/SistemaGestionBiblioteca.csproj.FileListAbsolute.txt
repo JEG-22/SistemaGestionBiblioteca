@@ -39,3 +39,4 @@ C:\Dev\School\SistemaGestionBiblioteca\bin\Debug\net8.0-windows\runtimes\win-arm
 C:\Dev\School\SistemaGestionBiblioteca\bin\Debug\net8.0-windows\runtimes\win-x64\native\e_sqlite3.dll
 C:\Dev\School\SistemaGestionBiblioteca\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Dev\School\SistemaGestionBiblioteca\obj\Debug\net8.0-windows\SistemaG.E4761258.Up2Date
+C:\Dev\School\SistemaGestionBiblioteca\obj\Debug\net8.0-windows\SistemaGestionBiblioteca.sourcelink.json
