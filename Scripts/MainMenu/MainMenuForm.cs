@@ -35,9 +35,8 @@ namespace SistemaGestionBiblioteca
         private void btnReportsModule_Click(object sender, EventArgs e)
         {
             // Abre el formulario de consultas y reportes
-            // ReportsForm reportsForm = new ReportsForm();
-            // reportsForm.Show();
-            return;
+            ReportsForm reportsForm = new ReportsForm();
+            reportsForm.Show();
         }
     }
 }
