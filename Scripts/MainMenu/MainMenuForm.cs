@@ -27,9 +27,8 @@ namespace SistemaGestionBiblioteca
         private void btnReservationsModule_Click(object sender, EventArgs e)
         {
             // Abre el formulario del módulo de reservas
-            // ReservationsForm reservationsForm = new ReservationsForm();
-            // reservationsForm.Show();
-            return;
+            BookRentForm bookRentForm = new BookRentForm();
+            bookRentForm.Show();
         }
 
         private void btnReportsModule_Click(object sender, EventArgs e)

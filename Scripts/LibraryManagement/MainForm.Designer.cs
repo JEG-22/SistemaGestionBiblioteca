@@ -230,7 +230,7 @@
             this.dgvBooks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBooks.Location = new System.Drawing.Point(30, 300); // Moved up closer
             this.dgvBooks.Name = "dgvBooks";
-            this.dgvBooks.Size = new System.Drawing.Size(340, 200);
+            this.dgvBooks.Size = new System.Drawing.Size(740, 200);
             this.dgvBooks.TabIndex = 17;
             this.dgvBooks.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Bottom;
             this.dgvBooks.ReadOnly = false;
@@ -239,7 +239,7 @@
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(400, 550); // Form size adjusted to fit
+            this.ClientSize = new System.Drawing.Size(800, 550); // Form size adjusted to fit
             this.Controls.Add(this.dgvBooks);
             this.Controls.Add(this.lblCopies);
             this.Controls.Add(this.lblGenre);

@@ -5,7 +5,7 @@ namespace SistemaGestionBiblioteca
         private System.ComponentModel.IContainer components = null;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnViewAvailableBooks;
-        private System.Windows.Forms.Button btnViewBooksByGenre;
+        private System.Windows.Forms.CheckBox chkViewBooksByGenre;
         private System.Windows.Forms.Button btnMostReservedBooks;
         private System.Windows.Forms.Button btnMostActiveUsers;
         private System.Windows.Forms.DataGridView dgvReports;
@@ -24,7 +24,7 @@ namespace SistemaGestionBiblioteca
         {
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnViewAvailableBooks = new System.Windows.Forms.Button();
-            this.btnViewBooksByGenre = new System.Windows.Forms.Button();
+            this.chkViewBooksByGenre = new System.Windows.Forms.CheckBox();
             this.comboBoxGenres = new System.Windows.Forms.ComboBox();
             this.btnMostReservedBooks = new System.Windows.Forms.Button();
             this.btnMostActiveUsers = new System.Windows.Forms.Button();
@@ -57,15 +57,15 @@ namespace SistemaGestionBiblioteca
             this.btnViewAvailableBooks.Click += new System.EventHandler(this.btnViewAvailableBooks_Click);
 
             // 
-            // btnViewBooksByGenre
+            // chkViewBooksByGenre
             // 
-            this.btnViewBooksByGenre.Location = new System.Drawing.Point(20, 120);
-            this.btnViewBooksByGenre.Name = "btnViewBooksByGenre";
-            this.btnViewBooksByGenre.Size = new System.Drawing.Size(180, 40);
-            this.btnViewBooksByGenre.TabIndex = 2;
-            this.btnViewBooksByGenre.Text = "Ver Libros por Género";
-            this.btnViewBooksByGenre.UseVisualStyleBackColor = true;
-            this.btnViewBooksByGenre.Click += new System.EventHandler(this.btnViewBooksByGenre_Click);
+            this.chkViewBooksByGenre.Location = new System.Drawing.Point(20, 120);
+            this.chkViewBooksByGenre.Name = "chkViewBooksByGenre";
+            this.chkViewBooksByGenre.Size = new System.Drawing.Size(180, 40);
+            this.chkViewBooksByGenre.TabIndex = 2;
+            this.chkViewBooksByGenre.Text = "Ver Libros por Género";
+            this.chkViewBooksByGenre.UseVisualStyleBackColor = true;
+            this.chkViewBooksByGenre.CheckedChanged += new System.EventHandler(this.chkViewBooksByGenre_CheckedChanged);
 
             // 
             // comboBoxGenres
@@ -76,6 +76,8 @@ namespace SistemaGestionBiblioteca
             this.comboBoxGenres.Name = "comboBoxGenres";
             this.comboBoxGenres.Size = new System.Drawing.Size(160, 23);
             this.comboBoxGenres.TabIndex = 1;
+            this.comboBoxGenres.Enabled = false;
+            this.comboBoxGenres.SelectedIndexChanged += new EventHandler(this.btnViewBooksByGenre_Click);
 
             // 
             // btnMostReservedBooks
@@ -117,7 +119,7 @@ namespace SistemaGestionBiblioteca
             this.Controls.Add(this.dgvReports);
             this.Controls.Add(this.btnMostActiveUsers);
             this.Controls.Add(this.btnMostReservedBooks);
-            this.Controls.Add(this.btnViewBooksByGenre);
+            this.Controls.Add(this.chkViewBooksByGenre);
             this.Controls.Add(this.comboBoxGenres);
             this.Controls.Add(this.btnViewAvailableBooks);
             this.Controls.Add(this.lblTitle);

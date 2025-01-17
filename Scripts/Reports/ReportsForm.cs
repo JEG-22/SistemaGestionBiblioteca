@@ -27,11 +27,19 @@ namespace SistemaGestionBiblioteca
 
                 var command = connection.CreateCommand();
                 command.CommandText =
-                @"
-                    SELECT *
-                    FROM Books
-                    WHERE Copies > 0 
-                ";
+                @"  SELECT * FROM Books b
+                    WHERE b.Copies > COALESCE((
+                        SELECT COUNT(*)
+                        FROM BookRentals br
+                        WHERE br.BookISBN = b.ISBN
+                        GROUP BY br.BookISBN
+                    ), 0)";
+
+                if (chkViewBooksByGenre.Checked)
+                {
+                    command.CommandText += "AND Genre = $genre";
+                    command.Parameters.AddWithValue("$genre", comboBoxGenres.SelectedItem);
+                }
 
                 var dataTable = new DataTable();
             
@@ -42,6 +50,11 @@ namespace SistemaGestionBiblioteca
                 
                 dgvReports.DataSource = dataTable;
             }
+        }
+
+        private void chkViewBooksByGenre_CheckedChanged(object sender, EventArgs e)
+        {
+            comboBoxGenres.Enabled = chkViewBooksByGenre.Checked;
         }
 
         private void btnViewBooksByGenre_Click(object sender, EventArgs e)
@@ -94,12 +107,62 @@ namespace SistemaGestionBiblioteca
 
         private void btnMostReservedBooks_Click(object sender, EventArgs e)
         {
-            return;
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText =
+                @"
+                    SELECT r.Repetitions, b.Title, b.Author, b.ISBN
+                    FROM (
+                        SELECT COUNT(*) AS Repetitions, BookISBN
+                        FROM BookRentals 
+                        GROUP BY BookISBN
+                    ) r
+                    INNER JOIN Books b ON b.ISBN=r.BookISBN
+                    ORDER BY r.Repetitions DESC
+                ";
+
+                var dataTable = new DataTable();
+            
+                using (var reader = command.ExecuteReader())
+                {
+                    dataTable.Load(reader);
+                }
+                
+                dgvReports.DataSource = dataTable;
+            }
         }
 
         private void btnMostActiveUsers_Click(object sender, EventArgs e)
         {
-            return;
+            using (var connection = new SqliteConnection(connectionString))
+            {
+                connection.Open();
+
+                var command = connection.CreateCommand();
+                command.CommandText =
+                @"
+                    SELECT r.Repeticiones, u.Nombre, u.Apellido, u.ID
+                    FROM (
+                        SELECT COUNT(*) AS Repeticiones, UserID
+                        FROM BookRentals
+                        GROUP BY UserID
+                    ) r
+                    INNER JOIN Users u ON r.UserID=u.ID
+                    ORDER BY r.Repeticiones DESC
+                ";
+
+                var dataTable = new DataTable();
+            
+                using (var reader = command.ExecuteReader())
+                {
+                    dataTable.Load(reader);
+                }
+                
+                dgvReports.DataSource = dataTable;
+            }
         }
     }
 }

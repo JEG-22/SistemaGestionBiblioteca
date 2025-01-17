@@ -119,6 +119,16 @@ namespace SistemaGestionBiblioteca
             this.lblPhone.TabIndex = 9;
             this.lblPhone.Text = "Teléfono";
 
+            //
+            // lblUserID
+            // 
+            this.lblUserID.AutoSize = true;
+            this.lblUserID.Location = new System.Drawing.Point(430, 70);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(58, 15);
+            this.lblUserID.TabIndex = 14;
+            this.lblUserID.Text = "User ID";
+
             // 
             // btnSave
             // 
