@@ -9,8 +9,6 @@ public partial class MainForm : Form
     string connectionString = "Data Source=Databases/library_books.db";
     public MainForm()
     {
-        // AddBook(new Book("The Invisible Man", "H.G. Wells", "Science Fiction", 1897, true));
-        // RemoveBook(new Book(9));
         InitializeComponent();
     }
 
@@ -79,7 +77,6 @@ public partial class MainForm : Form
         }
     }
 
-    // Event handler for the Add Book button
     private void btnAgregar_Click(object sender, EventArgs e)
     {
         // Retrieve input data from TextBox controls
@@ -104,7 +101,6 @@ public partial class MainForm : Form
         ClearInputFields();
     }
 
-    // Event handler for the Remove Book button
     private void btnEliminar_Click(object sender, EventArgs e)
     {
         string isbn = txtISBN.Text;
@@ -122,7 +118,6 @@ public partial class MainForm : Form
         ClearInputFields();
     }
 
-    // Method to clear input fields
     private void ClearInputFields()
     {
         txtISBN.Clear();

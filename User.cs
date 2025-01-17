@@ -1,4 +1,4 @@
-namespace SistemaGestionUsuarios;
+namespace SistemaGestionBiblioteca;
 
 public class User
 {

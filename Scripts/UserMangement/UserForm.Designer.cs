@@ -1,4 +1,4 @@
-namespace SistemaGestionUsuarios
+namespace SistemaGestionBiblioteca
 {
     partial class UserForm
     {

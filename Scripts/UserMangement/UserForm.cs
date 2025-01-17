@@ -2,7 +2,7 @@ using System;
 using System.Data;
 using Microsoft.Data.Sqlite;
 
-namespace SistemaGestionUsuarios;
+namespace SistemaGestionBiblioteca;
 
 public partial class UserForm : Form
 {
