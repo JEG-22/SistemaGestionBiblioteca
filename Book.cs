@@ -20,7 +20,7 @@ public class Book
     public Book(string ISBN)
     {
         //get book from ISBN
-        using (var connection = new SqliteConnection("Data Source=Databases/library_books.db"))
+        using (var connection = new SqliteConnection("Data Source=Databases/database.db"))
         {
             connection.Open();
 

@@ -6,7 +6,7 @@ namespace SistemaGestionBiblioteca;
 
 public partial class MainForm : Form
 {
-    string connectionString = "Data Source=Databases/library_books.db";
+    string connectionString = "Data Source=Databases/database.db";
     public MainForm()
     {
         InitializeComponent();
@@ -37,9 +37,23 @@ public partial class MainForm : Form
             command.Parameters.AddWithValue("$yearPublished", book.yearPublished);
             command.Parameters.AddWithValue("$copies", book.Copies);
 
-            command.ExecuteNonQuery();
+            try{
+                command.ExecuteNonQuery();
+                
+                MessageBox.Show($"Se agrego el libro '{book.title}'!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }catch (SqliteException ex)
+            {
+                if (ex.Message.Contains("UNIQUE constraint failed"))
+                {
+                    MessageBox.Show("Este codiogo ISBN ya esta en uso. Porvafor indique el codigo ISBN correcto.", "ISBN Duplicado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    throw; // Rethrow other exceptions
+                }
+            }
 
-            MessageBox.Show($"Se agrego el libro '{book.title}'!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
         }
     }
 

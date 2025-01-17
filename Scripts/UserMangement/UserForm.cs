@@ -6,7 +6,7 @@ namespace SistemaGestionBiblioteca;
 
 public partial class UserForm : Form
 {
-    private string connectionString = @"Data Source=Databases/users.db";
+    private string connectionString = @"Data Source=Databases/database.db";
     public UserForm()
     {
         InitializeComponent();
@@ -52,7 +52,7 @@ public partial class UserForm : Form
             var command = connection.CreateCommand();
             command.CommandText =
             @"
-                INSERT INTO users (Nombre, Apellido, Email, Telefono)
+                INSERT INTO Users (Nombre, Apellido, Email, Telefono)
                 Values ($name, $lasName, $email, $phone)
             ";
 
@@ -116,7 +116,7 @@ public partial class UserForm : Form
                 connection.Open();
 
                 var command = connection.CreateCommand();
-                command.CommandText = $"UPDATE users SET {columnName} = @value WHERE ID = @id";
+                command.CommandText = $"UPDATE Users SET {columnName} = @value WHERE ID = @id";
                 command.Parameters.AddWithValue("@value", changedVal);
                 command.Parameters.AddWithValue("@id", rowId);
 
@@ -140,7 +140,7 @@ public partial class UserForm : Form
             var command = connection.CreateCommand();
             command.CommandText = 
             @"
-                DELETE FROM users 
+                DELETE FROM Users 
                 WHERE ID = $id
             ";
 

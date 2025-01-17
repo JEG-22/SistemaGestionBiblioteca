@@ -8,6 +8,7 @@ namespace SistemaGestionBiblioteca
 {
     public partial class ReportsForm : Form
     {
+        private string connectionString = @"Data Source=Databases/database.db";
         public ReportsForm()
         {
             InitializeComponent();
@@ -18,10 +19,9 @@ namespace SistemaGestionBiblioteca
             PopulateGenres();
         }
 
-        // Method to show available books
         private void btnViewAvailableBooks_Click(object sender, EventArgs e)
         {
-            using (var connection = new SqliteConnection("Data Source=Databases/library_books.db"))
+            using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
 
@@ -30,7 +30,7 @@ namespace SistemaGestionBiblioteca
                 @"
                     SELECT *
                     FROM Books
-                    WHERE Copies > 0
+                    WHERE Copies > 0 
                 ";
 
                 var dataTable = new DataTable();
@@ -44,7 +44,6 @@ namespace SistemaGestionBiblioteca
             }
         }
 
-        // Method to show books by genre
         private void btnViewBooksByGenre_Click(object sender, EventArgs e)
         {
             if (comboBoxGenres.SelectedItem == null)
@@ -53,7 +52,7 @@ namespace SistemaGestionBiblioteca
                 return;
             }
 
-            using (var connection = new SqliteConnection("Data Source=Databases/library_books.db"))
+            using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
 
@@ -74,7 +73,7 @@ namespace SistemaGestionBiblioteca
 
         private void PopulateGenres()
         {
-            using (var connection = new SqliteConnection("Data Source=Databases/library_books.db"))
+            using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
 
@@ -93,28 +92,14 @@ namespace SistemaGestionBiblioteca
                 comboBoxGenres.SelectedIndex = 0; // Set default selection
         }
 
-        // Method to show most reserved books
         private void btnMostReservedBooks_Click(object sender, EventArgs e)
         {
-            // Logic to display most reserved books in the DataGridView
-            var mockData = new[] {
-                new { ISBN = "13579", Title = "Most Reserved Book 1", Author = "Author 5", Year = 2021, Genre = "Fiction", Copies = 10 },
-                new { ISBN = "24680", Title = "Most Reserved Book 2", Author = "Author 6", Year = 2018, Genre = "Non-Fiction", Copies = 7 }
-            };
-
-            dgvReports.DataSource = mockData;
+            return;
         }
 
-        // Method to show most active users
         private void btnMostActiveUsers_Click(object sender, EventArgs e)
         {
-            // Logic to display most active users in the DataGridView
-            var mockData = new[] {
-                new { UserID = 1, Name = "User 1", ReservedBooks = 5 },
-                new { UserID = 2, Name = "User 2", ReservedBooks = 3 }
-            };
-
-            dgvReports.DataSource = mockData;
+            return;
         }
     }
 }
